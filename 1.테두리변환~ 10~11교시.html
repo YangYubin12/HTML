@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            margin: 20px auto;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            float:left;
+            margin: 50px;
+        }
+        #box1{
+            background-color: lawngreen;
+            border: 1px solid transparent;
+        }
+        #box1:hover,#box1:active{
+            animation-name: shape;
+            animation-duration: 3s;
+            animation-iteration-count: 2;
+        }
+        @keyframes shape{
+            from{
+                border: 1px solid transparent;
+            }
+            to{
+                border: 1px solid black;
+                border-radius: 50%;
+            }
+        }
+        #box2{
+            background-color: orchid;
+            border: 1px solid transparent;
+            animation-name: rotate1;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-delay: 3s;
+        }
+        @keyframes rotate1{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(45deg);
+            }
+        }
+        .box3{
+            width: 200px;
+            height: 150px;
+            margin: 100px auto;
+            animation: rotate2 1.5s infinite, 
+            background 1.5s infinite alternate;
+        }
+        @keyframes rotate2{
+            from{
+                transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+            }
+            50%{
+                transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+            }
+            to{
+                transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+            }
+        }
+        @keyframes background{
+            from{
+                background-color: red;
+            }
+            50%{
+                background-color: green;
+            }
+            to{
+                background-color: blue;
+            }
+        }
+        #bear-box{
+            width: 200px;
+            margin: 30px auto;
+        }
+        img{
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            box-shadow: 5px 5px 30px 2px #000;
+            animation: rotateBear 2.5s infinite 9s;
+        }
+        @keyframes rotateBear{
+            from{
+                transform: perspective(200px) rotateY(0deg);
+            }
+            50%{
+                transform: perspective(200px) rotateY(-180deg);
+            }
+            to{
+                transform: perspective(200px) rotateY(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="box" id="box1">1.테두리 변환</div>
+        <div class="box" id="box2">2.회전애니메이션</div>
+        <h4 style="clear: left;">3.x축 y축 회전 및 배경색 변환</h4>
+        <div class="box3"></div>
+    </div>
+    <div class="box">4.이미지 회전
+        <img src="images/bear.jpg">
+    </div>
+</body>
+</html>
